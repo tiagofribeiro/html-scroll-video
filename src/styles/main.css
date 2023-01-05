@@ -10,6 +10,7 @@ body {
 
 .intro {
     height: 100vh;
+    background-color: black;
 }
 
 .intro video {
@@ -19,6 +20,7 @@ body {
 }
 
 .intro h1 {
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,9 +32,11 @@ body {
 
 .more {
     height: 100vh;
+    background-color: white;
 }
 
 .more h1 {
+    text-align: center;
     padding-top: 300px;
     text-align: center;
     color: black;

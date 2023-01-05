@@ -7,33 +7,39 @@ const firstText = intro.querySelector('h1');
 const more = document.querySelector('.more');
 const end = more.querySelector('h1');
 
-// ScrollMagic + Indicators
-const controller = new ScrollMagic.Controller();
 
-// Scene (amount of pixels)
-const videoScene = new ScrollMagic.Scene({
-    duration: 11000,
-    triggerElement: intro,
-    triggerHook: 0,
-})
-    .addIndicators()
-    .setPin(intro)
-    .addTo(controller);
+gsap.from(firstText, {x: -200});
 
-// Animation
-let accelamount = 0.1;
-let scrollpos = 0;
-let delay = 0;
+// // ScrollMagic + Indicators
+// const controller = new ScrollMagic.Controller();
 
-videoScene.on('update', e => { 
-    scrollpos = e.scrollPos / 1000;
+// // Scene (amount of pixels)
+// const videoScene = new ScrollMagic.Scene({
+//     duration: 10000,
+//     triggerElement: intro,
+//     triggerHook: 0,
+// })
+//     .addIndicators()
+//     .setPin(intro)
+//     .addTo(controller);
 
-    console.log(e); // <-------------
-});
+// // Animation
+// let accelamount = 0.1;
+// let scrollpos = 0;
+// let delay = 0;
 
-setInterval(() => {
-    // creates a reproduction delay then accelerates the video 0.1 times
-    delay += (scrollpos - delay) * accelamount;
+// videoScene.on('update', e => { 
+//     scrollpos = e.scrollPos / 1000;
 
-    video.currentTime = delay;
-}, 33.3); //40
+//     console.log(e); // <-------------
+// });
+
+// video.currentTime = scrollpos;
+
+// setInterval(() => {
+//     // creates a reproduction delay then accelerates the video 0.1 times
+//     delay += (scrollpos - delay) * accelamount;
+//     // console.log('DELAY >>>>>>' + delay);
+
+//     video.currentTime = delay;
+// }, 33.3); //40
