@@ -1,3 +1,8 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+
+gsap.registerPlugin(ScrollTrigger);
+
 // Top section
 const intro = document.querySelector('.intro');
 const video = intro.querySelector('video');
@@ -7,8 +12,14 @@ const firstText = intro.querySelector('h1');
 const more = document.querySelector('.more');
 const end = more.querySelector('h1');
 
+gsap.from(firstText, { x: -200 });
 
-gsap.from(firstText, {x: -200});
+ScrollTrigger.create({
+    trigger: intro,
+    start: firstText,
+    end: more,
+
+});
 
 // // ScrollMagic + Indicators
 // const controller = new ScrollMagic.Controller();
@@ -28,7 +39,7 @@ gsap.from(firstText, {x: -200});
 // let scrollpos = 0;
 // let delay = 0;
 
-// videoScene.on('update', e => { 
+// videoScene.on('update', e => {
 //     scrollpos = e.scrollPos / 1000;
 
 //     console.log(e); // <-------------
