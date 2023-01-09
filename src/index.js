@@ -1,5 +1,5 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,49 +8,47 @@ const intro = document.querySelector('.intro');
 const video = intro.querySelector('video');
 const firstText = intro.querySelector('h1');
 
+// const videoSrc = video.currentSrc;
+
 // Bottom section
 const more = document.querySelector('.more');
 const end = more.querySelector('h1');
 
-gsap.from(firstText, { x: -200 });
+let delay = 0;
+let accelamount = 0.1;
+let scrollpos = 0;
 
-ScrollTrigger.create({
-    trigger: intro,
-    start: firstText,
-    end: more,
-
+let tlvideo = gsap.timeline({
+    scrollTrigger: {
+        trigger: intro,
+        start: "top top",
+        end: "bottom+=200% bottom",
+        scrub: true,
+        markers: false,
+        pin: true,
+        onUpdate: (e) => {
+            console.log(e);
+        },
+    },
 });
 
-// // ScrollMagic + Indicators
-// const controller = new ScrollMagic.Controller();
+let tltext = gsap.timeline({
+    scrollTrigger: {
+        trigger: intro,
+        start: "top 1px",
+        end: "bottom 100px",
+        scrub: true,
+        markers: true,
+    },
+});
 
-// // Scene (amount of pixels)
-// const videoScene = new ScrollMagic.Scene({
-//     duration: 10000,
-//     triggerElement: intro,
-//     triggerHook: 0,
-// })
-//     .addIndicators()
-//     .setPin(intro)
-//     .addTo(controller);
 
-// // Animation
-// let accelamount = 0.1;
-// let scrollpos = 0;
-// let delay = 0;
-
-// videoScene.on('update', e => {
-//     scrollpos = e.scrollPos / 1000;
-
-//     console.log(e); // <-------------
-// });
-
-// video.currentTime = scrollpos;
-
-// setInterval(() => {
-//     // creates a reproduction delay then accelerates the video 0.1 times
-//     delay += (scrollpos - delay) * accelamount;
-//     // console.log('DELAY >>>>>>' + delay);
-
-//     video.currentTime = delay;
-// }, 33.3); //40
+video.onloadedmetadata = function () {
+    tlvideo.to(video, {
+        currentTime: video.duration,
+    });
+    tltext.from(firstText, {
+        x: -700, 
+        alpha: 0,
+    });
+};
