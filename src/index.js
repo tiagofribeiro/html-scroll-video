@@ -43,7 +43,7 @@ let tltext = gsap.timeline({
         start: "top 1px",
         end: "bottom+=100px 150px",
         scrub: 6,
-        markers: true,
+        markers: false,
     },
 });
 

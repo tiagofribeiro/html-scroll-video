@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/tiagofribeiro/html-scroll-video#readme",
   "dependencies": {
-    "gsap": "^3.11.4"
+    "gsap": "^3.11.4",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
