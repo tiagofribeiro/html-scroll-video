@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack watch",
     "dev-server": "webpack serve --open"
@@ -28,6 +29,11 @@
   "homepage": "https://github.com/tiagofribeiro/html-scroll-video#readme",
   "dependencies": {
     "gsap": "^3.11.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.6.2",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
